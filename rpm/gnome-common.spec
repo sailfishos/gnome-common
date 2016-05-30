@@ -1,11 +1,11 @@
 Name:           gnome-common
-Version:        3.6.0
+Version:        3.14.0
 Release:        1
 Summary:        Useful things common to building gnome packages from scratch
 
 Group:          Development/Tools
 BuildArch:      noarch
-License:        GPLv3
+License:        GPLv2
 URL:            http://developer.gnome.org
 Source0:        http://download.gnome.org/sources/%{name}/3.6/%{name}-%{version}.tar.xz
 
@@ -33,14 +33,12 @@ a GNOME application.
 %autogen
 make %{?_smp_mflags}
 cp doc-build/README doc-README
-# No sense making a doc subdir in the rpm pkg for one file.
-cp doc/usage.txt usage.txt
 
 %install
 make install DESTDIR=$RPM_BUILD_ROOT
 
 %files
-%doc doc-README README usage.txt
+%doc doc-README README
 %{_bindir}/*
 %{_datadir}/aclocal/*
 %{_datadir}/%{name}
